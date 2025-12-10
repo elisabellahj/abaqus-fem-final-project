@@ -1,0 +1,432 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2022 replay file
+# Internal Version: 2021_09_16-02.57.30 176069
+# Run by elishje on Tue Dec  9 22:32:59 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=533.399963378906, 
+    height=339.954284667969)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=2000.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=STANDALONE)
+s.ConstructionLine(point1=(-600.0, 0.0), point2=(-581.385375976562, 0.0))
+s.HorizontalConstraint(entity=g[2], addUndoState=False)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1811.86, 
+    farPlane=1959.38, width=1403.51, height=693, cameraPosition=(-2.95953, 
+    1.9985, 1885.62), cameraTarget=(-2.95953, 1.9985, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(2.16272, 
+    325.945, 1885.62), cameraTarget=(2.16272, 325.945, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1812.29, 
+    farPlane=1958.95, width=1395.31, height=688.953)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1811.31, 
+    farPlane=1959.93, width=1413.89, height=698.125)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1811.37, 
+    farPlane=1959.87, width=1412.86, height=697.615)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1722.21, 
+    farPlane=2049.03, width=3109.3, height=1535.26, cameraPosition=(482.614, 
+    373.671, 1885.62), cameraTarget=(482.614, 373.671, 0))
+s.ConstructionLine(point1=(0.0, 400.0), point2=(-787.5, 400.0))
+s.HorizontalConstraint(entity=g[3], addUndoState=False)
+s.ConstructionLine(point1=(0.0, 0.0), point2=(0.0, 500.0))
+s.VerticalConstraint(entity=g[4], addUndoState=False)
+s.ConstructionLine(point1=(-600.0, 0.0), point2=(-600.0, -87.5))
+s.VerticalConstraint(entity=g[5], addUndoState=False)
+s.ConstructionLine(point1=(600.0, 0.0), point2=(600.0, 325.0))
+s.VerticalConstraint(entity=g[6], addUndoState=False)
+s.Spot(point=(300.0, 0.0))
+s.undo()
+s.ConstructionLine(point1=(300.0, 0.0), point2=(300.0, -137.5))
+s.VerticalConstraint(entity=g[7], addUndoState=False)
+s.ConstructionLine(point1=(-300.0, 0.0), point2=(-300.0, 125.0))
+s.VerticalConstraint(entity=g[8], addUndoState=False)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1777.62, 
+    farPlane=1993.62, width=2054.98, height=1014.67, cameraPosition=(167.857, 
+    409.095, 1885.62), cameraTarget=(167.857, 409.095, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1812.94, 
+    farPlane=1958.3, width=1382.99, height=682.869, cameraPosition=(14.8579, 
+    261.997, 1885.62), cameraTarget=(14.8579, 261.997, 0))
+s.Line(point1=(-600.0, 0.0), point2=(-300.0, 400.0))
+s.CoincidentConstraint(entity1=v[0], entity2=g[2], addUndoState=False)
+s.CoincidentConstraint(entity1=v[1], entity2=g[3], addUndoState=False)
+s.Line(point1=(-300.0, 400.0), point2=(-300.0, 0.0))
+s.VerticalConstraint(entity=g[10], addUndoState=False)
+s.CoincidentConstraint(entity1=v[2], entity2=g[2], addUndoState=False)
+s.Line(point1=(-300.0, 0.0), point2=(-600.0, 0.0))
+s.HorizontalConstraint(entity=g[11], addUndoState=False)
+s.PerpendicularConstraint(entity1=g[10], entity2=g[11], addUndoState=False)
+s.Line(point1=(0.0, 400.0), point2=(-300.0, 0.0))
+s.Line(point1=(-300.0, 0.0), point2=(0.0, 0.0))
+s.HorizontalConstraint(entity=g[13], addUndoState=False)
+s.CoincidentConstraint(entity1=v[4], entity2=g[2], addUndoState=False)
+s.Line(point1=(0.0, 0.0), point2=(0.0, 400.0))
+s.VerticalConstraint(entity=g[14], addUndoState=False)
+s.PerpendicularConstraint(entity1=g[13], entity2=g[14], addUndoState=False)
+s.Line(point1=(0.0, 400.0), point2=(-300.0, 400.0))
+s.HorizontalConstraint(entity=g[15], addUndoState=False)
+s.Line(point1=(0.0, 400.0), point2=(300.0, 400.0))
+s.HorizontalConstraint(entity=g[16], addUndoState=False)
+s.CoincidentConstraint(entity1=v[5], entity2=g[3], addUndoState=False)
+s.Line(point1=(300.0, 400.0), point2=(600.0, 0.0))
+s.CoincidentConstraint(entity1=v[6], entity2=g[2], addUndoState=False)
+s.Line(point1=(600.0, 0.0), point2=(300.0, 0.0))
+s.HorizontalConstraint(entity=g[18], addUndoState=False)
+s.CoincidentConstraint(entity1=v[7], entity2=g[2], addUndoState=False)
+s.Line(point1=(300.0, 0.0), point2=(300.0, 400.0))
+s.VerticalConstraint(entity=g[19], addUndoState=False)
+s.PerpendicularConstraint(entity1=g[18], entity2=g[19], addUndoState=False)
+s.Line(point1=(0.0, 400.0), point2=(300.0, 0.0))
+s.Line(point1=(300.0, 0.0), point2=(0.0, 0.0))
+s.HorizontalConstraint(entity=g[21], addUndoState=False)
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(14.8579, 
+    261.997, 1885.62), cameraTarget=(14.8579, 261.997, 0))
+s.ObliqueDimension(vertex1=v[0], vertex2=v[1], textPoint=(-559.377136230469, 
+    192.295776367188), value=500.0)
+s.HorizontalDimension(vertex1=v[1], vertex2=v[3], textPoint=(-55.9105224609375, 
+    456.958465576172), value=300.0)
+s.DistanceDimension(entity1=g[8], entity2=v[0], textPoint=(-499.7294921875, 
+    -37.01123046875), value=300.0)
+s.VerticalDimension(vertex1=v[2], vertex2=v[1], textPoint=(-228.78759765625, 
+    379.175933837891), value=400.0)
+s.ObliqueDimension(vertex1=v[3], vertex2=v[4], textPoint=(-69.05322265625, 
+    0.0), value=400.0)
+s.undo()
+s.DistanceDimension(entity1=g[8], entity2=v[4], textPoint=(-62.9873657226562, 
+    -40.0417175292969), value=300.0)
+s.undo()
+s.ObliqueDimension(vertex1=v[3], vertex2=v[7], textPoint=(287.821655273438, 
+    115.523376464844), value=500.0)
+s.VerticalDimension(vertex1=v[7], vertex2=v[5], textPoint=(360.612121582031, 
+    390.287719726562), value=400.0)
+s.undo()
+s.HorizontalDimension(vertex1=v[7], vertex2=v[6], textPoint=(581.005065917969, 
+    -38.0213928222656), value=300.0)
+s.ObliqueDimension(vertex1=v[5], vertex2=v[6], textPoint=(582.016052246094, 
+    119.564041137695), value=500.0)
+s.undo()
+p = mdb.models['Model-1'].Part(name='Truss', dimensionality=TWO_D_PLANAR, 
+    type=DISCRETE_RIGID_SURFACE)
+p = mdb.models['Model-1'].parts['Truss']
+p.BaseWire(sketch=s)
+s.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+p.Set(edges=edges, name='Set-1')
+#: The set 'Set-1' has been created (13 edges).
+#: Warning: Cannot continue yet--complete the step or cancel the procedure.
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+mdb.models['Model-1'].Material(name='Aluminium')
+mdb.models['Model-1'].materials['Aluminium'].Elastic(table=((70000.0, 0.33), ))
+mdb.models['Model-1'].TrussSection(name='Section-1', material='Aluminium', 
+    area=5.0)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p1 = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].parts['Truss'].setValues(space=TWO_D_PLANAR, 
+    type=DEFORMABLE_BODY)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+a = mdb.models['Model-1'].rootAssembly
+a.DatumCsysByDefault(CARTESIAN)
+p = mdb.models['Model-1'].parts['Truss']
+a.Instance(name='Truss-1', part=p, dependent=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+mdb.models['Model-1'].StaticStep(name='Load', previous='Initial')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, adaptiveMeshConstraints=OFF)
+#: Warning: Cannot continue yet--complete the step or cancel the procedure.
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#8 ]', ), )
+region = a.Set(vertices=verts1, name='load1')
+mdb.models['Model-1'].ConcentratedForce(name='max force', 
+    createStepName='Load', region=region, cf2=5156.0, distributionType=UNIFORM, 
+    field='', localCsys=None)
+#: Warning: Cannot continue yet--complete the step or cancel the procedure.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Initial')
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#80 ]', ), )
+region = a.Set(vertices=verts1, name='fixed')
+mdb.models['Model-1'].DisplacementBC(name='BC-1', createStepName='Initial', 
+    region=region, u1=SET, u2=SET, ur3=UNSET, amplitude=UNSET, 
+    distributionType=UNIFORM, fieldName='', localCsys=None)
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#4 ]', ), )
+region = a.Set(vertices=verts1, name='rolling')
+mdb.models['Model-1'].DisplacementBC(name='rolling', createStepName='Initial', 
+    region=region, u1=SET, u2=UNSET, ur3=UNSET, amplitude=UNSET, 
+    distributionType=UNIFORM, fieldName='', localCsys=None)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF, mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Truss']
+p.seedPart(size=50.0, deviationFactor=0.1, minSizeFactor=0.1)
+elemType1 = mesh.ElemType(elemCode=T2D2, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+pickedRegions =(edges, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, ))
+p = mdb.models['Model-1'].parts['Truss']
+p.generateMesh()
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.Job(name='Job-1', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON, mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+p1 = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+region = p.Set(edges=edges, name='assign')
+p = mdb.models['Model-1'].parts['Truss']
+p.SectionAssignment(region=region, sectionName='Section-1', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='Job-2', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+#: The job input file "Job-2.inp" has been submitted for analysis.
+#: Job Job-2: Analysis Input File Processor completed successfully.
+#: Error in job Job-2: Too many attempts made for this increment
+#: Job Job-2: Abaqus/Standard aborted due to errors.
+#: Error in job Job-2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job Job-2 aborted due to errors.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].boundaryConditions['rolling'].setValues(u2=SET)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.Job(name='Job-3', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-3'].submit(consistencyChecking=OFF)
+#: The job input file "Job-3.inp" has been submitted for analysis.
+#: Job Job-3: Analysis Input File Processor completed successfully.
+#: Job Job-3: Abaqus/Standard completed successfully.
+#: Job Job-3 completed successfully. 
+o3 = session.openOdb(name='M:/Documents/abacusfinal/Job-3.odb')
+#: Model: M:/Documents/abacusfinal/Job-3.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       3
+#: Number of Node Sets:          6
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF, mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+pickedRegions = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+p.deleteMesh(regions=pickedRegions)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+pickedEdges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+p.seedEdgeByNumber(edges=pickedEdges, number=1, constraint=FINER)
+elemType1 = mesh.ElemType(elemCode=T2D2, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+pickedRegions =(edges, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, ))
+p = mdb.models['Model-1'].parts['Truss']
+p.generateMesh()
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='Job-4', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+#: The job input file "Job-4.inp" has been submitted for analysis.
+#: Job Job-4: Analysis Input File Processor completed successfully.
+#: Job Job-4: Abaqus/Standard completed successfully.
+#: Job Job-4 completed successfully. 
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['M:/Documents/abacusfinal/Job-3.odb'])
+o3 = session.openOdb(name='M:/Documents/abacusfinal/Job-4.odb')
+#: Model: M:/Documents/abacusfinal/Job-4.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       3
+#: Number of Node Sets:          6
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load')
+mdb.models['Model-1'].loads['max force'].setValues(cf2=-5156.0, 
+    distributionType=UNIFORM, field='')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.Job(name='Job-5', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-5'].submit(consistencyChecking=OFF)
+#: The job input file "Job-5.inp" has been submitted for analysis.
+#: Job Job-5: Analysis Input File Processor completed successfully.
+#: Job Job-5: Abaqus/Standard completed successfully.
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['M:/Documents/abacusfinal/Job-4.odb'])
+o3 = session.openOdb(name='M:/Documents/abacusfinal/Job-5.odb')
+#: Model: M:/Documents/abacusfinal/Job-5.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       3
+#: Number of Node Sets:          6
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+#: Job Job-5 completed successfully. 
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].loads['max force'].setValues(cf2=-10000.0, 
+    distributionType=UNIFORM, field='')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.Job(name='Job-6', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-6'].submit(consistencyChecking=OFF)
+#: The job input file "Job-6.inp" has been submitted for analysis.
+#: Job Job-6: Analysis Input File Processor completed successfully.
+#: Job Job-6: Abaqus/Standard completed successfully.
+#: Job Job-6 completed successfully. 
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['M:/Documents/abacusfinal/Job-5.odb'])
+o3 = session.openOdb(name='M:/Documents/abacusfinal/Job-6.odb')
+#: Model: M:/Documents/abacusfinal/Job-6.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       3
+#: Number of Node Sets:          6
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+mdb.saveAs(pathName='M:/Documents/abacusfinal/final boss')
+#: The model database has been saved to "M:\Documents\abacusfinal\final boss.cae".
+
+---------- RUNTIME EXCEPTION HAS OCCURRED ----------
+*** ERROR: ABAQUS/ABQcaeK rank 0 received the ABORT signal

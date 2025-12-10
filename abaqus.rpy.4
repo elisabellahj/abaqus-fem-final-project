@@ -1,0 +1,373 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2022 replay file
+# Internal Version: 2021_09_16-02.57.30 176069
+# Run by elishje on Wed Dec 10 18:21:10 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=533.399963378906, 
+    height=339.433654785156)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+openMdb(pathName='M:/Documents/abacusfinal/final boss.cae')
+#: The model database "M:\Documents\abacusfinal\final boss.cae" has been opened.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+del mdb.models['Model-1'].loads['max force']
+#: Warning: Cannot continue yet--complete the step or cancel the procedure.
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#10 ]', ), )
+region = a.Set(vertices=verts1, name='loadback')
+mdb.models['Model-1'].ConcentratedForce(name='bacload', createStepName='Load', 
+    region=region, cf2=-2000.0, distributionType=UNIFORM, field='', 
+    localCsys=None)
+#: Warning: Cannot continue yet--complete the step or cancel the procedure.
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#8 ]', ), )
+region = a.Set(vertices=verts1, name='Set-5')
+mdb.models['Model-1'].ConcentratedForce(name='Load-2', createStepName='Load', 
+    region=region, cf2=-4000.0, distributionType=UNIFORM, field='', 
+    localCsys=None)
+p1 = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p = mdb.models['Model-1'].parts['Truss']
+s = p.features['Wire-1'].sketch
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=s)
+s1 = mdb.models['Model-1'].sketches['__edit__']
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+p.projectReferencesOntoSketch(sketch=s1, upToFeature=p.features['Wire-1'], 
+    filter=COPLANAR_EDGES)
+s1.delete(objectList=(d[5], ))
+s1.delete(objectList=(g[2], g[18], c[43]))
+s1.Line(point1=(300.0, 0.0), point2=(500.0, 0.0))
+s1.HorizontalConstraint(entity=g[22], addUndoState=False)
+s1.PerpendicularConstraint(entity1=g[19], entity2=g[22], addUndoState=False)
+#: Warning: Coincident point selected.
+s1.Line(point1=(500.0, 0.0), point2=(600.0, 0.0))
+s1.HorizontalConstraint(entity=g[23], addUndoState=False)
+s1.ParallelConstraint(entity1=g[22], entity2=g[23], addUndoState=False)
+s1.HorizontalDimension(vertex1=v[7], vertex2=v[8], textPoint=(493.334808349609, 
+    -40.8702392578125), value=200.0)
+s1.HorizontalDimension(vertex1=v[8], vertex2=v[6], textPoint=(577.18212890625, 
+    -25.5454711914062), value=100.0)
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['Truss']
+p.features['Wire-1'].setValues(sketch=s1)
+del mdb.models['Model-1'].sketches['__edit__']
+p = mdb.models['Model-1'].parts['Truss']
+p.regenerate()
+#: Warning: Mesh deleted in 1 region due to geometry association failure.
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#8 ]', ), )
+region = a.Set(vertices=verts1, name='front')
+mdb.models['Model-1'].ConcentratedForce(name='front', createStepName='Load', 
+    region=region, cf2=-1500.0, distributionType=UNIFORM, field='', 
+    localCsys=None)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+pickedRegions = e.getSequenceFromMask(mask=('[#3ff3 ]', ), )
+p.deleteMesh(regions=pickedRegions)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+pickedEdges = e.getSequenceFromMask(mask=('[#3fff ]', ), )
+p.seedEdgeByNumber(edges=pickedEdges, number=1, constraint=FINER)
+elemType1 = mesh.ElemType(elemCode=T2D2, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#3fff ]', ), )
+pickedRegions =(edges, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, ))
+p = mdb.models['Model-1'].parts['Truss']
+p.generateMesh()
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.Job(name='Job-8', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+del mdb.jobs['Job-1']
+del mdb.jobs['Job-2']
+del mdb.jobs['Job-3']
+del mdb.jobs['Job-4']
+del mdb.jobs['Job-5']
+del mdb.jobs['Job-6']
+del mdb.jobs['Job-7']
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON, mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+p1 = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].Material(name='steel')
+mdb.models['Model-1'].materials['steel'].Elastic(table=((210000000000.0, 0.3), 
+    ))
+del mdb.models['Model-1'].materials['Aluminium']
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#3fff ]', ), )
+region = p.Set(edges=edges, name='Set-8')
+p = mdb.models['Model-1'].parts['Truss']
+p.SectionAssignment(region=region, sectionName='Section-1', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+del mdb.models['Model-1'].parts['Truss'].sectionAssignments[0]
+del mdb.models['Model-1'].parts['Truss'].sectionAssignments[0]
+mdb.models['Model-1'].TrussSection(name='Section-2', material='steel', 
+    area=5.0)
+del mdb.models['Model-1'].sections['Section-1']
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#3fff ]', ), )
+region = p.Set(edges=edges, name='Set-9')
+p = mdb.models['Model-1'].parts['Truss']
+p.SectionAssignment(region=region, sectionName='Section-2', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='Job-2', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+#: The job input file "Job-2.inp" has been submitted for analysis.
+#: Job Job-2: Analysis Input File Processor completed successfully.
+#: Error in job Job-2: Too many attempts made for this increment
+#: Job Job-2: Abaqus/Standard aborted due to errors.
+#: Error in job Job-2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job Job-2 aborted due to errors.
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p1 = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p = mdb.models['Model-1'].parts['Truss']
+s = p.features['Wire-1'].sketch
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=s)
+s2 = mdb.models['Model-1'].sketches['__edit__']
+g, v, d, c = s2.geometry, s2.vertices, s2.dimensions, s2.constraints
+s2.setPrimaryObject(option=SUPERIMPOSE)
+p.projectReferencesOntoSketch(sketch=s2, upToFeature=p.features['Wire-1'], 
+    filter=COPLANAR_EDGES)
+s2.delete(objectList=(g[22], g[23], d[6], d[7], c[56], c[61]))
+s2.Line(point1=(300.0, 0.0), point2=(600.0, 0.0))
+s2.HorizontalConstraint(entity=g[24], addUndoState=False)
+s2.PerpendicularConstraint(entity1=g[19], entity2=g[24], addUndoState=False)
+s2.HorizontalDimension(vertex1=v[7], vertex2=v[6], textPoint=(534.244995117188, 
+    -45.3153381347656), value=300.0)
+s2.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['Truss']
+p.features['Wire-1'].setValues(sketch=s2)
+del mdb.models['Model-1'].sketches['__edit__']
+p = mdb.models['Model-1'].parts['Truss']
+p.regenerate()
+#: Warning: Mesh deleted in 2 regions due to geometry association failure.
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+del mdb.models['Model-1'].loads['front']
+#: Warning: Cannot continue yet--complete the step or cancel the procedure.
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Truss-1'].vertices
+verts1 = v1.getSequenceFromMask(mask=('[#4 ]', ), )
+region = a.Set(vertices=verts1, name='Set-7')
+mdb.models['Model-1'].ConcentratedForce(name='front', createStepName='Load', 
+    region=region, cf2=-1000.0, distributionType=UNIFORM, field='', 
+    localCsys=None)
+mdb.models['Model-1'].loads['Load-2'].setValues(cf2=-4500.0, 
+    distributionType=UNIFORM, field='')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+pickedRegions = e.getSequenceFromMask(mask=('[#1ffb ]', ), )
+p.deleteMesh(regions=pickedRegions)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+pickedEdges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+p.seedEdgeByNumber(edges=pickedEdges, number=1, constraint=FINER)
+elemType1 = mesh.ElemType(elemCode=T2D2, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+pickedRegions =(edges, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, ))
+elemType1 = mesh.ElemType(elemCode=T2D2, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+pickedRegions =(edges, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, ))
+p = mdb.models['Model-1'].parts['Truss']
+p.generateMesh()
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.Job(name='Job-3', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+del mdb.jobs['Job-3']
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON, mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+p1 = mdb.models['Model-1'].parts['Truss']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+region = p.Set(edges=edges, name='Set-13')
+p = mdb.models['Model-1'].parts['Truss']
+p.SectionAssignment(region=region, sectionName='Section-2', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+del mdb.models['Model-1'].parts['Truss'].sectionAssignments[0]
+del mdb.models['Model-1'].parts['Truss'].sectionAssignments[0]
+p = mdb.models['Model-1'].parts['Truss']
+e = p.edges
+edges = e.getSequenceFromMask(mask=('[#1fff ]', ), )
+region = p.Set(edges=edges, name='Set-14')
+p = mdb.models['Model-1'].parts['Truss']
+p.SectionAssignment(region=region, sectionName='Section-2', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='Job-3', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-3'].submit(consistencyChecking=OFF)
+#: The job input file "Job-3.inp" has been submitted for analysis.
+#: Job Job-3: Analysis Input File Processor completed successfully.
+#: Job Job-3: Abaqus/Standard completed successfully.
+#: Job Job-3 completed successfully. 
+o3 = session.openOdb(name='M:/Documents/abacusfinal/Job-3.odb')
+#: Model: M:/Documents/abacusfinal/Job-3.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       7
+#: Number of Node Sets:          13
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].boundaryConditions['rolling'].setValuesInStep(
+    stepName='Load', u1=FREED)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.Job(name='Job-4', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=2, numDomains=2, numGPUs=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+#: The job input file "Job-4.inp" has been submitted for analysis.
+#: Job Job-4: Analysis Input File Processor completed successfully.
+#: Job Job-4: Abaqus/Standard completed successfully.
+#: Job Job-4 completed successfully. 
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['M:/Documents/abacusfinal/Job-3.odb'])
+o3 = session.openOdb(name='M:/Documents/abacusfinal/Job-4.odb')
+#: Model: M:/Documents/abacusfinal/Job-4.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       7
+#: Number of Node Sets:          13
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+odb = session.odbs['M:/Documents/abacusfinal/Job-4.odb']
+session.writeFieldReport(fileName='abaqus.rpt', append=ON, 
+    sortItem='Element Label', odb=odb, step=0, frame=1, 
+    outputPosition=ELEMENT_CENTROID, variable=(('E', INTEGRATION_POINT), ('S', 
+    INTEGRATION_POINT), ), stepFrame=SPECIFY)
+mdb.save()
+#: The model database has been saved to "M:\Documents\abacusfinal\final boss.cae".
